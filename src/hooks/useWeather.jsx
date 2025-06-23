@@ -12,8 +12,10 @@ export function useWeather(city) {
     setError(null);
     try {
       const json = await getCurrentWeather(city);
+      console.log("✅ Weather fetched:", json);
       setData(json);
     } catch (err) {
+      console.error("❌ Fetch error:", err);
       setError(err);
     } finally {
       setLoading(false);
@@ -23,6 +25,11 @@ export function useWeather(city) {
   useEffect(() => {
     fetchWeather();
   }, [fetchWeather]);
+
+  // Log loading state changes
+  useEffect(() => {
+    console.log('🔄 Loading state changed:', loading);
+  }, [loading]);
 
   return { data, loading, error, refetchWeather: fetchWeather };
 }
