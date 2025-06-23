@@ -16,7 +16,7 @@ import { LiaCloudRainSolid } from "react-icons/lia";
 export default function HighlightsSection({ current, forecast, location }) {
     const today = forecast?.forecastday?.[0]?.astro || {};
     return (
-        <div className="h-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 flex flex-col">
+        <div className="h-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 flex flex-col shadow-[4px_8px_16px_rgba(0,0,0,0.15)]">
             <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Today's Highlights</h2>
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <HighlightCard title="UV Index" icon={<FiSun className="h-5 w-5" />} value={current.uv} />
@@ -46,7 +46,7 @@ export default function HighlightsSection({ current, forecast, location }) {
                 />
                 <HighlightCard
                     title="Precipitation"
-                    icon={<LiaCloudRainSolid className="h-5 w-5" text-blue-500/>}
+                    icon={<LiaCloudRainSolid className="h-5 w-5 text-gray-500" />}
                     value={current.precip_mm}
                     unit="mm"
                 />
