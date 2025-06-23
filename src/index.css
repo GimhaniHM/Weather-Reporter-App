@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* index.css */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -1,25 +1,28 @@
-import { useState, useEffect } from 'react';
+// src/hooks/useWeather.js
+import { useState, useEffect, useCallback } from 'react';
 import { getCurrentWeather } from '../services/weatherService';
 
-export function useWeather(city = 'Colombo') {
+export function useWeather(city) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const fetchWeather = useCallback(async () => {
     setLoading(true);
-    getCurrentWeather(city)
-      .then((d) => {
-        setData(d);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    setError(null);
+    try {
+      const json = await getCurrentWeather(city);
+      setData(json);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
   }, [city]);
 
-  return { data, loading, error };
+  useEffect(() => {
+    fetchWeather();
+  }, [fetchWeather]);
+
+  return { data, loading, error, refetchWeather: fetchWeather };
 }
