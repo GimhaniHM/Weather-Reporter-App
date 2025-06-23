@@ -38,7 +38,7 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
         <div className="w-80 bg-white dark:bg-gray-800 rounded-xl relative overflow-hidden shadow-[4px_8px_16px_rgba(0,0,0,0.15)] h-full flex flex-col">
             {/* Time & Date */}
             <div className="absolute top-4 left-4">
-                <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">{time}</h1>
+                <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">{time}</h1>
                 <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">{date}</p>
             </div>
 
@@ -53,7 +53,7 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             {/* Icon & Temperature */}
             <div className="flex justify-between items-center mt-16 px-9 py-4">
                 <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="h-40 w-40" />
-                <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">
+                <span className="text-6xl font-bold text-gray-900 dark:text-gray-100">
                     {Math.round(current.temp_c)}°
                 </span>
             </div>
