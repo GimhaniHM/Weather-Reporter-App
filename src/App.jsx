@@ -6,10 +6,9 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+      <main className="pt-1 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </main>
     </BrowserRouter>
