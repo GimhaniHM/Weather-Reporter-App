@@ -6,24 +6,33 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
     const { location, current } = data;
     const local = new Date(location.localtime.replace(' ', 'T'));
     const time = local.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-    const date = local.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    const parts = new Intl.DateTimeFormat('en-GB', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long'
+    }).formatToParts(local);
+    const weekday = parts.find(p => p.type === 'weekday')?.value;
+    const day = parts.find(p => p.type === 'day')?.value;
+    const month = parts.find(p => p.type === 'month')?.value;
+    const date = `${weekday}, ${day} ${month}`;
+
 
     const handleRefresh = (e) => {
-    const btn = e.currentTarget;
-    const icon = btn.querySelector('svg');
+        const btn = e.currentTarget;
+        const icon = btn.querySelector('svg');
 
-    // Add ring to button and spin icon
-    btn.classList.add('ring-2', 'ring-blue-400');
-    icon.classList.add('animate-[spin_0.6s_linear]');
+        // Add ring to button and spin icon
+        btn.classList.add('ring-2', 'ring-blue-400');
+        icon.classList.add('animate-[spin_0.6s_linear]');
 
-    onRefresh();
+        onRefresh();
 
-    // Clean up after animation duration
-    setTimeout(() => {
-      icon.classList.remove('animate-[spin_0.6s_linear]');
-      btn.classList.remove('ring-2', 'ring-blue-400');
-    }, 600);
-  };
+        // Clean up after animation duration
+        setTimeout(() => {
+            icon.classList.remove('animate-[spin_0.6s_linear]');
+            btn.classList.remove('ring-2', 'ring-blue-400');
+        }, 600);
+    };
 
     return (
         <div className="w-80 bg-white dark:bg-gray-800 rounded-xl relative overflow-hidden shadow-[4px_8px_16px_rgba(0,0,0,0.15)] h-full flex flex-col">
@@ -34,16 +43,16 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             </div>
 
             {/* Location with filled green pin */}
-            <div className="absolute top-7 right-4 flex items-center text-green-500">
-                <MapPinIcon className="h-5 w-5 mr-1 fill-green-500" />
-                <span className="text-sm font-medium text-gray-900 dark:text-gray-200">
+            <div className="absolute top-7 right-4 flex items-start space-x-1 max-w-[50%]">
+                <MapPinIcon className="h-6 w-6 text-green-500 flex-shrink-0" />
+                <span className="text-sm font-medium text-gray-900 dark:text-gray-200 break-words leading-tight">
                     {location.name}, {location.country}
                 </span>
             </div>
 
             {/* Icon & Temperature */}
             <div className="flex justify-between items-center mt-16 px-9 py-4">
-                <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="h-20 w-20" />
+                <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="h-40 w-40" />
                 <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">
                     {Math.round(current.temp_c)}°
                 </span>
