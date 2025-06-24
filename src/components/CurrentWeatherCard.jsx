@@ -35,7 +35,7 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
     };
 
     return (
-        <div className="w-80 bg-white dark:bg-gray-800 rounded-xl relative overflow-hidden shadow-[4px_8px_16px_rgba(0,0,0,0.15)] h-full flex flex-col">
+        <div className="w-80 bg-white dark:bg-gray-800 rounded-xl relative overflow-hidden shadow-[4px_8px_16px_rgba(0,0,0,0.15)] h-full flex flex-col pb-5">
             {/* Time & Date */}
             <div className="absolute top-4 left-4">
                 <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">{time}</h1>
@@ -51,10 +51,10 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             </div>
 
             {/* Icon & Temperature */}
-            <div className="flex justify-between items-center mt-16 px-9 py-4">
+            <div className="flex justify-between items-center mt-16 px-3 py-4">
                 <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="h-40 w-40" />
-                <span className="text-6xl font-bold text-gray-900 dark:text-gray-100">
-                    {Math.round(current.temp_c)}°
+                <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">
+                    {current.temp_c}°c
                 </span>
             </div>
 
@@ -62,7 +62,7 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             <div className="text-center py-2">
                 <p className="text-lg text-gray-700 dark:text-gray-300 capitalize">{current.condition.text}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                    Feels like {Math.round(current.feelslike_c)}°
+                    Feels like {current.feelslike_c}°
                 </p>
             </div>
 
