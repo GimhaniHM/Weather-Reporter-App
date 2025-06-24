@@ -12,7 +12,7 @@ export default function DayForecastCard({ icon, temp, date }) {
 
       {/* Temperature */}
       <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
-        {Math.round(temp)}°
+        {Math.round(temp)}°c
       </span>
 
       {/* Date */}
