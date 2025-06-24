@@ -5,7 +5,7 @@ import { useWeather } from '../hooks/useWeather';
 import CurrentWeatherCard from '../components/CurrentWeatherCard';
 import HighlightsSection from '../components/HighlightsSection';
 import WeeklyForecast from '../components/WeeklyForecast';
-// import HourlyForecast from '../components/HourlyForecast';
+import HourlyForecast from '../components/HourlyForecast';
 
 export default function HomePage() {
     const [searchParams] = useSearchParams();
@@ -49,9 +49,9 @@ export default function HomePage() {
                                 <WeeklyForecast forecast={data.forecast} />
                             </div>
                             {/* Hourly (you already have HourlyForecast) */}
-                            {/* <div className="w-full lg:basis-1/3">
+                            <div className="w-full lg:basis-1/3">
                                 <HourlyForecast forecast={data.forecast} />
-                            </div> */}
+                            </div>
                         </div>
                     </>
                 )}
