@@ -1,14 +1,13 @@
 export default function HighlightCard({ title, icon, value, unit, extra }) {
   return (
-    <div className="h-40 bg-white dark:bg-gray-700 rounded-xl shadow-md p-4 flex flex-col justify-between">
-      
-      {/* Top Row: Title & Icon */}
-      <div className="flex justify-between items-center">
-        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+    <div className="h-40 bg-white dark:bg-gray-700 rounded-xl shadow-md p-4 flex flex-col justify-between overflow-hidden">
+      {/* Top Row */}
+      <div className="flex justify-between items-start">
+        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 break-words">
           {title}
         </h3>
         {icon && (
-          <div className="text-gray-500 dark:text-gray-400">
+          <div className="text-gray-500 dark:text-gray-400 flex-shrink-0">
             {icon}
           </div>
         )}
@@ -16,7 +15,7 @@ export default function HighlightCard({ title, icon, value, unit, extra }) {
 
       {/* Centered Value */}
       <div className="mt-4 flex justify-center">
-        <span className="text-3xl font-bold text-gray-900 dark:text-white">
+        <span className="text-3xl font-bold text-gray-900 dark:text-white truncate">
           {value}
           {unit && (
             <span className="text-lg font-medium text-gray-600 dark:text-gray-400">
@@ -26,9 +25,9 @@ export default function HighlightCard({ title, icon, value, unit, extra }) {
         </span>
       </div>
 
-      {/* Optional Extra Text */}
+      {/* Optional Extra */}
       {extra && (
-        <div className="bottom-4 left-4 mt-2 text-sm text-gray-500 dark:text-gray-400">
+        <div className="mt-2 text-sm text-gray-500 dark:text-gray-400 break-words">
           {extra}
         </div>
       )}

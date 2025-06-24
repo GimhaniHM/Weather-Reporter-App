@@ -11,8 +11,8 @@ export default function HomePage() {
     const [searchParams] = useSearchParams();
     const city = searchParams.get('city') || 'Colombo';
     const { data, loading, error, refetchWeather } = useWeather(city);
-
     const [showLoader, setShowLoader] = useState(false);
+
     useEffect(() => {
         let timer;
         if (loading) timer = setTimeout(() => setShowLoader(true), 300);
@@ -24,41 +24,33 @@ export default function HomePage() {
     }, [loading]);
 
     return (
-        <div className="relative min-h-screen px-4 sm:px-8 bg-gray-50 dark:bg-gray-900 transition-colors">
-            <main className="max-w-6xl mx-auto pt-8">
+        <div className="relative min-h-screen px-4 sm:px-8 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
+            <main className="max-w-6xl mx-auto pt-8 pb-8">
                 {data?.location && (
-                    <>
-                        {/* Top Section */}
-                        <div className="flex flex-col lg:flex-row items-stretch gap-6">
-                            <div className="w-full lg:basis-1/3 h-full flex justify-center">
-                                <CurrentWeatherCard data={data} onRefresh={refetchWeather} />
-                            </div>
-                            <div className="w-full lg:flex-1 h-full">
-                                <HighlightsSection
-                                    current={data.current}
-                                    forecast={data.forecast}
-                                    location={data.location}
-                                />
-                            </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
+
+                        {/* Column 1 — 1/3 width on desktop */}
+                        <div className="flex flex-col gap-8 order-1">
+                            <CurrentWeatherCard data={data} onRefresh={refetchWeather} />
+                            <WeeklyForecast forecast={data.forecast} />
                         </div>
 
-                        {/* Bottom: weekly + hourly */}
-                        <div className="flex flex-col lg:flex-row items-start gap-3">
-                            {/* 7-day row */}
-                            <div className="lg:basis-1/3">
-                                <WeeklyForecast forecast={data.forecast} />
-                            </div>
-                            {/* Hourly (you already have HourlyForecast) */}
-                            <div className="w-full lg:basis-1/3">
-                                <HourlyForecast forecast={data.forecast} />
-                            </div>
+                        {/* Column 2 — 2/3 width on desktop */}
+                        <div className="flex flex-col gap-8 order-2">
+                            <HighlightsSection
+                                current={data.current}
+                                forecast={data.forecast}
+                                location={data.location}
+                            />
+                            <HourlyForecast forecast={data.forecast} />
                         </div>
-                    </>
+
+                    </div>
                 )}
 
                 {showLoader && (
                     <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-md z-50">
-                        <div className="w-12 h-12 border-4 border-t-4 border-blue-500 rounded-full animate-spin" />
+                        <div className="w-12 h-12 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />
                     </div>
                 )}
 

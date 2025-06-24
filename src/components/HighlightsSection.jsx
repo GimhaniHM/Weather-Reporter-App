@@ -46,15 +46,32 @@ export default function HighlightsSection({ current, forecast, location }) {
                         <>
                             <div className="flex items-center justify-start gap-x-8">
                                 <FiSunrise className="h-8 w-8 text-yellow-500" />
-                                <span className="font-bold text-2xl text-gray-900 dark:text-white">{today.sunrise}</span>
+                                {(() => {
+                                    const [time, unit] = today.sunrise.split(' ');
+                                    return (
+                                        <span className="font-bold text-2xl text-gray-900 dark:text-white">
+                                            {time}
+                                            <span className="text-lg font-medium lowercase text-gray-600 dark:text-gray-400 pl-1">{unit}</span>
+                                        </span>
+                                    );
+                                })()}
                             </div>
                             <div className="flex items-center justify-start mt-2 gap-x-8">
                                 <FiSunset className="h-8 w-8 text-orange-500" />
-                                <span className="font-bold text-2xl text-gray-900 dark:text-white">{today.sunset}</span>
+                                {(() => {
+                                    const [time, unit] = today.sunset.split(' ');
+                                    return (
+                                        <span className="font-bold text-2xl text-gray-900 dark:text-white">
+                                            {time}
+                                            <span className="text-lg font-medium lowercase text-gray-600 dark:text-gray-400 pl-1">{unit}</span>
+                                        </span>
+                                    );
+                                })()}
                             </div>
                         </>
                     }
                 />
+
                 <HighlightCard
                     title="Precipitation"
                     icon={<LiaCloudRainSolid className="h-5 w-5 text-gray-500" />}
