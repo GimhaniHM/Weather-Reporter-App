@@ -53,13 +53,13 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             {/* Icon & Temperature */}
             <div className="flex justify-between items-center mt-16 px-3 py-4">
                 <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="h-40 w-40" />
-                <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">
-                    {current.temp_c}°c
+                <span className="text-5xl font-bold text-gray-900 dark:text-gray-100 pr-5">
+                    {(Math.round(current.temp_c))}°c
                 </span>
             </div>
 
             {/* Description & Feels Like */}
-            <div className="text-center py-2">
+            <div className="text-center py-1">
                 <p className="text-lg text-gray-700 dark:text-gray-300 capitalize">{current.condition.text}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                     Feels like {current.feelslike_c}°
