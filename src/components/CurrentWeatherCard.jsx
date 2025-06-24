@@ -62,7 +62,7 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             <div className="text-center py-1">
                 <p className="text-lg text-gray-700 dark:text-gray-300 capitalize">{current.condition.text}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                    Feels like {current.feelslike_c}°
+                    Feels like {current.feelslike_c}°c
                 </p>
             </div>
 
