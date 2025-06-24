@@ -13,7 +13,7 @@ export default function HourlyCard({ time, icon, temp, wind, windDegree }) {
       <img src={icon} alt="" className="h-12 w-12" />
 
       {/* Temperature */}
-      <span className="text-lg font-bold text-gray-900 dark:text-gray-100">{Math.round(temp)}°</span>
+      <span className="text-lg font-bold text-gray-900 dark:text-gray-100">{Math.round(temp)}°c</span>
 
       {/* Wind */}
       <div className="flex flex-col items-center space-y-0.5">
