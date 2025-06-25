@@ -1,12 +1,39 @@
-# React + Vite
+# 🌦️ Weather Reporter App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, feature-rich weather app built with React, Vite, Tailwind CSS and WeatherAPI.com.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **Current Weather**: Displays temperature, feels‑like, weather conditions, time, date, and location.
+- **Today's Highlights**: Includes UV Index (with description), wind status, sunrise/sunset times, precipitation, pressure, and humidity.
+- **5‑Day Forecast**: Next five days (excluding today), showing icon, average temperature, and date.
+- **Hourly Forecast**: Next 7 hours across current or next day, with time, weather icon, temperature, and wind speed/direction.
+- **Dark Mode**: Toggle using Tailwind CSS.
+- **Responsive Layout**: Smart column ordering for mobile vs desktop.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧰 Built With
+
+- [React 18](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [WeatherAPI.com](https://www.weatherapi.com/)
+- [Heroicons](https://heroicons.com/) & [react-icons](https://react-icons.github.io/react-icons/)
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+- Node.js (>= 16)
+- API key from [WeatherAPI.com](https://www.weatherapi.com/)
+
+### Installation
+
+```bash
+git clone <repo-url>
+cd Weather-Reporter-App
+npm install
