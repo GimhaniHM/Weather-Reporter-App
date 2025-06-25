@@ -35,7 +35,7 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
     };
 
     return (
-        <div className="w-80 bg-white dark:bg-gray-800 rounded-xl relative overflow-hidden shadow-[4px_8px_16px_rgba(0,0,0,0.15)] h-full flex flex-col pb-5">
+        <div className="w-80 bg-gray-100 dark:bg-gray-800 rounded-xl relative overflow-hidden h-full flex flex-col pb-5 shadow-[4px_4px_8px_rgba(0,1,0,1)] dark:shadow-[0_4px_12px_rgba(1,0,0,1)]">
             {/* Time & Date */}
             <div className="absolute top-4 left-4">
                 <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">{time}</h1>

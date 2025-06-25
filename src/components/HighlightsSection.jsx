@@ -16,7 +16,7 @@ import { LiaCloudRainSolid } from "react-icons/lia";
 export default function HighlightsSection({ current, forecast, location }) {
     const today = forecast?.forecastday?.[0]?.astro || {};
     return (
-        <div className="h-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 flex flex-col shadow-[4px_8px_16px_rgba(0,0,0,0.15)]">
+        <div className="h-full bg-gray-100 dark:bg-gray-800 rounded-xl p-8 flex flex-col shadow-[4px_4px_8px_rgba(0,1,0,1)] dark:shadow-[0_4px_12px_rgba(1,0,0,1)]">
             <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Today's Highlights</h2>
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <HighlightCard
@@ -46,15 +46,32 @@ export default function HighlightsSection({ current, forecast, location }) {
                         <>
                             <div className="flex items-center justify-start gap-x-8">
                                 <FiSunrise className="h-8 w-8 text-yellow-500" />
-                                <span className="font-bold text-2xl text-gray-900 dark:text-white">{today.sunrise}</span>
+                                {(() => {
+                                    const [time, unit] = today.sunrise.split(' ');
+                                    return (
+                                        <span className="font-bold text-2xl text-gray-900 dark:text-white">
+                                            {time}
+                                            <span className="text-lg font-medium lowercase text-gray-600 dark:text-gray-400 pl-1">{unit}</span>
+                                        </span>
+                                    );
+                                })()}
                             </div>
                             <div className="flex items-center justify-start mt-2 gap-x-8">
                                 <FiSunset className="h-8 w-8 text-orange-500" />
-                                <span className="font-bold text-2xl text-gray-900 dark:text-white">{today.sunset}</span>
+                                {(() => {
+                                    const [time, unit] = today.sunset.split(' ');
+                                    return (
+                                        <span className="font-bold text-2xl text-gray-900 dark:text-white">
+                                            {time}
+                                            <span className="text-lg font-medium lowercase text-gray-600 dark:text-gray-400 pl-1">{unit}</span>
+                                        </span>
+                                    );
+                                })()}
                             </div>
                         </>
                     }
                 />
+
                 <HighlightCard
                     title="Precipitation"
                     icon={<LiaCloudRainSolid className="h-5 w-5 text-gray-500" />}
