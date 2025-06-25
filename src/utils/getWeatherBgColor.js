@@ -1,5 +1,3 @@
-// utils/getWeatherBgColor.js
-
 const weatherCodeGroups = {
   sunny: [1000],
   cloudy: [1003, 1006, 1009],
@@ -28,7 +26,7 @@ const bgColorMap = {
   rain: 'bg-blue-300 dark:bg-blue-500',
   snow: 'bg-white text-blue-900 dark:bg-blue-100',
   sleet: 'bg-cyan-200 dark:bg-cyan-400',
-  thunder: 'bg-indigo-300 dark:bg-indigo-500',
+  thunder: 'bg-indigo-300 dark:bg-indigo-600',
   ice: 'bg-blue-100 dark:bg-blue-300',
   blizzard: 'bg-slate-200 dark:bg-slate-400',
   default: 'bg-gray-200 dark:bg-gray-400',
