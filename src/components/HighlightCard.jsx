@@ -1,6 +1,6 @@
 export default function HighlightCard({ title, icon, value, unit, extra }) {
   return (
-    <div className="h-40 bg-white dark:bg-gray-700 rounded-xl shadow-md p-4 flex flex-col justify-between overflow-hidden shadow-[4px_4px_8px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_12px_rgba(0,0,0,1)]">
+    <div className="h-40 bg-white dark:bg-gray-700 rounded-xl p-4 flex flex-col justify-between overflow-hidden shadow-[4px_4px_8px_rgba(0,1,0,1)] dark:shadow-[0_4px_12px_rgba(1,0,0,1)]">
       {/* Top Row */}
       <div className="flex justify-between items-start">
         <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 break-words">

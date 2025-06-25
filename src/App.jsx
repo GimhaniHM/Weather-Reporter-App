@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main className="pt-1 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors">
+      <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>

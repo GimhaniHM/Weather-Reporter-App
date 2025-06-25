@@ -20,7 +20,7 @@ export default function Header() {
     };
 
     return (
-        <header className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 transition-colors">
+        <header className="flex items-center justify-between p-4 bg-gray-300 dark:bg-gray-800 transition-colors">
 
             {/* Search Form */}
             <form
