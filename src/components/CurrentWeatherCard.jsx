@@ -1,4 +1,4 @@
-import React from 'react';
+// src/components/CurrentWeatherCard.jsx
 import { MapPinIcon } from '@heroicons/react/24/solid';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
