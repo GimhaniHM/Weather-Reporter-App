@@ -1,6 +1,6 @@
 // src/services/weatherService.js
-const API_KEY = import.meta.env.WEATHER_API_KEY;
-const BASE_URL = import.meta.env.WEATHER_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const BASE_URL = import.meta.env.VITE_WEATHER_API_BASE_URL;
 
 export async function getCurrentWeather(city = 'Colombo') {
   const url = `${BASE_URL}/forecast.json?key=${API_KEY}&q=${encodeURIComponent(city)}&days=6&aqi=no&alerts=no`;
