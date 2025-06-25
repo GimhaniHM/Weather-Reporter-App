@@ -1,6 +1,4 @@
 // src/components/AlertModal.jsx
-import React from 'react';
-
 export default function AlertModal({ show, message, onClose }) {
   if (!show) return null;
   return (

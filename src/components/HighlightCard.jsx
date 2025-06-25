@@ -1,3 +1,4 @@
+// src/components/HighlightCard.jsx
 export default function HighlightCard({ title, icon, value, unit, extra }) {
   return (
     <div className="h-40 bg-white dark:bg-gray-700 rounded-xl p-4 flex flex-col justify-between overflow-hidden shadow-[4px_4px_8px_rgba(0,1,0,1)] dark:shadow-[0_4px_12px_rgba(1,0,0,1)]">

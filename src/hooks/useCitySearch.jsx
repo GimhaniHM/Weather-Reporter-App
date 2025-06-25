@@ -1,13 +1,8 @@
 // src/hooks/useCitySearch.js
 import { useState, useEffect } from 'react';
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-const BASE_URL = 'http://api.weatherapi.com/v1';
+const API_KEY = import.meta.env.WEATHER_API_KEY;
+const BASE_URL = import.meta.env.WEATHER_API_BASE_URL;
 
-/**
- * Fetches city suggestions from WeatherAPI's search endpoint:
- * GET /search.json?key=YOUR_KEY&q=QUERY
- * Returns an array of locations with name, region, country :contentReference[oaicite:1]{index=1}
- */
 export function useCitySearch(query) {
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,7 +26,7 @@ export function useCitySearch(query) {
           setError(err);
           setLoading(false);
         });
-    }, 300); // debounce
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [query]);
