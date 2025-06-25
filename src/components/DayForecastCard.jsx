@@ -1,5 +1,4 @@
-import React from 'react';
-
+// src/components/DayForecastCard.jsx
 export default function DayForecastCard({ icon, temp, date }) {
   return (
     <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-xl space-x-12">

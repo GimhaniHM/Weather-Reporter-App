@@ -1,3 +1,4 @@
+// src/utils/getWeatherBgColor.js
 const weatherCodeGroups = {
   sunny: [1000],
   cloudy: [1003, 1006, 1009],
