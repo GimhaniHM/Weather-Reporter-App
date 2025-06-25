@@ -2,8 +2,9 @@
 import { MapPinIcon } from '@heroicons/react/24/solid';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
-export default function CurrentWeatherCard({ data, onRefresh }) {
+export default function CurrentWeatherCard({ data, forecastDay, onRefresh }) {
     const { location, current } = data;
+    const { maxtemp_c, mintemp_c } = forecastDay.day;
     const local = new Date(location.localtime.replace(' ', 'T'));
     const time = local.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
     const parts = new Intl.DateTimeFormat('en-GB', {
@@ -54,13 +55,16 @@ export default function CurrentWeatherCard({ data, onRefresh }) {
             <div className="flex justify-between items-center mt-16 px-3 py-4">
                 <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="h-40 w-40" />
                 <span className="text-5xl font-bold text-gray-900 dark:text-gray-100 pr-5">
-                    {(Math.round(current.temp_c))}°c
+                    {Math.round(current.temp_c)}°c
+                    <p className="block text-xs text-gray-500 dark:text-gray-400 mt-2">
+                        High: {Math.round(maxtemp_c)} Low: {Math.round(mintemp_c)}
+                    </p>
                 </span>
             </div>
 
             {/* Description & Feels Like */}
-            <div className="text-center py-1">
-                <p className="text-lg text-gray-700 dark:text-gray-300 capitalize">{current.condition.text}</p>
+            <div className="text-center py-1 mx-4">
+                <p className="text-lg text-gray-700 dark:text-gray-300 capitalize break-words">{current.condition.text}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                     Feels like {current.feelslike_c}°c
                 </p>

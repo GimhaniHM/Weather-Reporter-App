@@ -39,7 +39,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
                         {/* Column 1 */}
                         <div className="flex flex-col gap-8 order-1">
-                            <CurrentWeatherCard data={data} onRefresh={refetchWeather} />
+                            <CurrentWeatherCard data={data} forecastDay={data.forecast.forecastday[0]} onRefresh={refetchWeather} />
                             <WeeklyForecast forecast={data.forecast} />
                         </div>
 
