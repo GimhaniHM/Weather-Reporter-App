@@ -5,7 +5,7 @@ import DayForecastCard from './DayForecastCard';
 export default function WeeklyForecast({ forecast }) {
     const daysToShow = forecast.forecastday.slice(1);
   return (
-    <section className="w-80 h-full mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 pb-2 shadow-[4px_8px_16px_rgba(0,0,0,0.15)]">
+    <section className="w-80 h-full mt-8 bg-gray-100 dark:bg-gray-800 rounded-xl p-6 pb-2 shadow-[4px_4px_8px_rgba(0,1,0,1)] dark:shadow-[0_4px_12px_rgba(1,0,0,1)]">
       <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200 text-center">
         5 Days Forecast
       </h2>

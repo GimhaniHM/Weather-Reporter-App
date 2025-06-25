@@ -16,7 +16,7 @@ import { LiaCloudRainSolid } from "react-icons/lia";
 export default function HighlightsSection({ current, forecast, location }) {
     const today = forecast?.forecastday?.[0]?.astro || {};
     return (
-        <div className="h-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 flex flex-col shadow-[4px_8px_16px_rgba(0,0,0,0.15)]">
+        <div className="h-full bg-gray-100 dark:bg-gray-800 rounded-xl p-8 flex flex-col shadow-[4px_4px_8px_rgba(0,1,0,1)] dark:shadow-[0_4px_12px_rgba(1,0,0,1)]">
             <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Today's Highlights</h2>
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <HighlightCard

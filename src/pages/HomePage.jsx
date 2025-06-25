@@ -24,7 +24,7 @@ export default function HomePage() {
     }, [loading]);
 
     return (
-        <div className="relative min-h-screen px-4 sm:px-8 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
+        <div className="relative min-h-screen px-4 sm:px-8 dark:from-gray-900 dark:to-gray-800 transition-colors bg-gradient-to-br from-gray-600 to-white dark:from-gray-900 dark:to-gray-800">
             <main className="max-w-6xl mx-auto pt-8 pb-8">
                 {data?.location && (
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">

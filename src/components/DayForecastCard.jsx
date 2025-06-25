@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function DayForecastCard({ icon, temp, date }) {
   return (
-    <div className="flex items-center bg-white dark:bg-gray-800 rounded-xl space-x-12">
+    <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-xl space-x-12">
       {/* Icon */}
       <img
         src={icon}
